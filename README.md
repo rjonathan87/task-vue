@@ -4,4 +4,4 @@ con git
 sin git
 otro git
 
-desde el nuevo git
+desde el nuevo gi
