@@ -19,10 +19,13 @@
                         <h5 class="card-title">Form Add</h5>
                         <form class="form" id="frm-add">
                             <div class="form-group">
-                                <input type="text" name="" id="" class="form-control" placeholder="Task">
+                                <input  type="text" name="task" id="task" class="form-control" 
+                                        placeholder="Task" v-model="task">
                             </div>
                             <div class="form-group">
-                                <button class="form-control btn btn-success btn-block" id="addTask">
+                                <button class="form-control btn btn-success btn-block" 
+                                        id="addTask" 
+                                        @click="btnAddTask">
                                     Add Task
                                 </button>
                             </div>
@@ -32,10 +35,9 @@
             </div>
             <div class="col-6 col-md-8">
                 <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                        <div class="card-header">Header</div>
                         <div class="card-body">
-                            <h4 class="card-title">Primary card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h4 class="card-title">{{task}}</h4>
+                            
                         </div>
                 </div>
             </div>
