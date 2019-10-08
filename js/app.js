@@ -18,8 +18,8 @@ let app = new Vue({
             
             //actualiza el localStorage
             this.addDB();
-            this.listTask();
-            document.getElementById("task").value = '';
+            // this.listTask();
+            this.task = '';
         },
 
         // Agrega datos en el localStorage
@@ -42,15 +42,16 @@ let app = new Vue({
                 this.taskArr = [];
             }
         },
-        listTask(){
-            let listTask = document.getElementById("listTask");
-            listTask.innerHTML = '';
-            this.taskArr.forEach((el, index) => {
-                listTask.innerHTML += `
-                    <li class="list-group-item">
-                        ${el.name} <button class="btn btn-danger float-right">Delete</button>
-                    </li>`;
-            })
+        deleteTask(index){
+            let taskName = this.taskArr[index].name;
+            if(confirm(`Desea eliminar ${taskName}?`)){
+                this.taskArr.splice(index,1);
+                this.addDB();
+            }
+        },
+        editTask(index){
+            this.taskArr[index].status = !this.taskArr[index].status;
+            this.addDB();
         },
         setFocus(){
             document.getElementById("task").focus();
@@ -59,6 +60,6 @@ let app = new Vue({
     mounted() {
         this.setFocus();
         this.checkDB();
-        this.listTask();
+        // this.listTask();
     }
-})
+});
