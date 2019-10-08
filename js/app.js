@@ -8,7 +8,11 @@ let app = new Vue({
         btnAddTask(e){
             e.preventDefault();
             let valueTask = e.target.form[0].value;
-            this.AddTask(valueTask);
+
+            // revisar campo vacío
+            if (valueTask != '') {
+                this.AddTask(valueTask.trim());
+            }
         },
         AddTask(taskAdd, status = false){
             this.taskArr.push({
